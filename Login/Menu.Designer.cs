@@ -38,10 +38,13 @@
             menuCine = new MenuStrip();
             imagen = new ToolStripMenuItem();
             actualizaciónToolStripMenuItem = new ToolStripMenuItem();
+            porPuestoToolStripMenuItem = new ToolStripMenuItem();
+            porNombreToolStripMenuItem = new ToolStripMenuItem();
             novedadesToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesiónToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem1 = new ToolStripMenuItem();
+            panelContenedor = new Panel();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             menuCine.SuspendLayout();
@@ -54,7 +57,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1025, 56);
+            panel2.Size = new Size(821, 56);
             panel2.TabIndex = 0;
             // 
             // panel1
@@ -67,7 +70,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1025, 44);
+            panel1.Size = new Size(821, 44);
             panel1.TabIndex = 0;
             // 
             // btnrestaurar
@@ -79,7 +82,7 @@
             btnrestaurar.FlatStyle = FlatStyle.Flat;
             btnrestaurar.Font = new Font("Berlin Sans FB", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnrestaurar.ForeColor = Color.White;
-            btnrestaurar.Location = new Point(917, 9);
+            btnrestaurar.Location = new Point(713, 9);
             btnrestaurar.Name = "btnrestaurar";
             btnrestaurar.Size = new Size(37, 24);
             btnrestaurar.TabIndex = 3;
@@ -96,7 +99,7 @@
             btnminimizar.FlatStyle = FlatStyle.Flat;
             btnminimizar.Font = new Font("Berlin Sans FB", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnminimizar.ForeColor = Color.White;
-            btnminimizar.Location = new Point(867, 9);
+            btnminimizar.Location = new Point(663, 9);
             btnminimizar.Name = "btnminimizar";
             btnminimizar.Size = new Size(39, 24);
             btnminimizar.TabIndex = 2;
@@ -113,7 +116,7 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Berlin Sans FB", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.ForeColor = Color.White;
-            btnSalir.Location = new Point(965, 9);
+            btnSalir.Location = new Point(761, 9);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(37, 24);
             btnSalir.TabIndex = 1;
@@ -127,7 +130,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Berlin Sans FB", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(212, 175, 55);
-            label1.Location = new Point(261, 5);
+            label1.Location = new Point(83, 9);
             label1.Name = "label1";
             label1.Size = new Size(503, 31);
             label1.TabIndex = 0;
@@ -142,7 +145,7 @@
             menuCine.Location = new Point(0, 56);
             menuCine.Name = "menuCine";
             menuCine.Padding = new Padding(6, 12, 0, 12);
-            menuCine.Size = new Size(1025, 60);
+            menuCine.Size = new Size(821, 60);
             menuCine.TabIndex = 1;
             menuCine.Text = "menuStrip1";
             // 
@@ -159,10 +162,29 @@
             // 
             // actualizaciónToolStripMenuItem
             // 
+            actualizaciónToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { porPuestoToolStripMenuItem, porNombreToolStripMenuItem });
             actualizaciónToolStripMenuItem.ForeColor = Color.FromArgb(212, 175, 55);
             actualizaciónToolStripMenuItem.Name = "actualizaciónToolStripMenuItem";
             actualizaciónToolStripMenuItem.Size = new Size(95, 36);
             actualizaciónToolStripMenuItem.Text = "Consulta";
+            // 
+            // porPuestoToolStripMenuItem
+            // 
+            porPuestoToolStripMenuItem.BackColor = Color.Black;
+            porPuestoToolStripMenuItem.ForeColor = Color.FromArgb(212, 175, 55);
+            porPuestoToolStripMenuItem.Name = "porPuestoToolStripMenuItem";
+            porPuestoToolStripMenuItem.Size = new Size(196, 28);
+            porPuestoToolStripMenuItem.Text = "Por Puesto";
+            porPuestoToolStripMenuItem.Click += porPuestoToolStripMenuItem_Click;
+            // 
+            // porNombreToolStripMenuItem
+            // 
+            porNombreToolStripMenuItem.BackColor = Color.Black;
+            porNombreToolStripMenuItem.ForeColor = Color.FromArgb(212, 175, 55);
+            porNombreToolStripMenuItem.Name = "porNombreToolStripMenuItem";
+            porNombreToolStripMenuItem.Size = new Size(196, 28);
+            porNombreToolStripMenuItem.Text = "Por Nombre";
+            porNombreToolStripMenuItem.Click += porNombreToolStripMenuItem_Click;
             // 
             // novedadesToolStripMenuItem
             // 
@@ -192,6 +214,15 @@
             salirToolStripMenuItem1.Size = new Size(59, 36);
             salirToolStripMenuItem1.Text = "Salir";
             // 
+            // panelContenedor
+            // 
+            panelContenedor.BackColor = Color.Transparent;
+            panelContenedor.Dock = DockStyle.Fill;
+            panelContenedor.Location = new Point(0, 116);
+            panelContenedor.Name = "panelContenedor";
+            panelContenedor.Size = new Size(821, 523);
+            panelContenedor.TabIndex = 2;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -199,7 +230,8 @@
             BackColor = SystemColors.ActiveBorder;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1025, 735);
+            ClientSize = new Size(821, 639);
+            Controls.Add(panelContenedor);
             Controls.Add(menuCine);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
@@ -229,5 +261,8 @@
         private ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem salirToolStripMenuItem1;
+        private ToolStripMenuItem porPuestoToolStripMenuItem;
+        private ToolStripMenuItem porNombreToolStripMenuItem;
+        private Panel panelContenedor;
     }
 }
