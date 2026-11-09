@@ -41,9 +41,11 @@
             porPuestoToolStripMenuItem = new ToolStripMenuItem();
             porNombreToolStripMenuItem = new ToolStripMenuItem();
             novedadesToolStripMenuItem = new ToolStripMenuItem();
+            cancelarReservaciónToolStripMenuItem = new ToolStripMenuItem();
+            cambiarDatosDeReservaciónToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesiónToolStripMenuItem = new ToolStripMenuItem();
+            realizarReservaciónToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
-            salirToolStripMenuItem1 = new ToolStripMenuItem();
             panelContenedor = new Panel();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -57,7 +59,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(821, 56);
+            panel2.Size = new Size(840, 56);
             panel2.TabIndex = 0;
             // 
             // panel1
@@ -70,7 +72,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(821, 44);
+            panel1.Size = new Size(840, 44);
             panel1.TabIndex = 0;
             // 
             // btnrestaurar
@@ -82,7 +84,7 @@
             btnrestaurar.FlatStyle = FlatStyle.Flat;
             btnrestaurar.Font = new Font("Berlin Sans FB", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnrestaurar.ForeColor = Color.White;
-            btnrestaurar.Location = new Point(713, 9);
+            btnrestaurar.Location = new Point(732, 9);
             btnrestaurar.Name = "btnrestaurar";
             btnrestaurar.Size = new Size(37, 24);
             btnrestaurar.TabIndex = 3;
@@ -99,7 +101,7 @@
             btnminimizar.FlatStyle = FlatStyle.Flat;
             btnminimizar.Font = new Font("Berlin Sans FB", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnminimizar.ForeColor = Color.White;
-            btnminimizar.Location = new Point(663, 9);
+            btnminimizar.Location = new Point(682, 9);
             btnminimizar.Name = "btnminimizar";
             btnminimizar.Size = new Size(39, 24);
             btnminimizar.TabIndex = 2;
@@ -116,7 +118,7 @@
             btnSalir.FlatStyle = FlatStyle.Flat;
             btnSalir.Font = new Font("Berlin Sans FB", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSalir.ForeColor = Color.White;
-            btnSalir.Location = new Point(761, 9);
+            btnSalir.Location = new Point(780, 9);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(37, 24);
             btnSalir.TabIndex = 1;
@@ -130,7 +132,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Berlin Sans FB", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(212, 175, 55);
-            label1.Location = new Point(83, 9);
+            label1.Location = new Point(93, 9);
             label1.Name = "label1";
             label1.Size = new Size(503, 31);
             label1.TabIndex = 0;
@@ -141,11 +143,11 @@
             menuCine.BackColor = Color.Black;
             menuCine.Font = new Font("Berlin Sans FB", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             menuCine.ImageScalingSize = new Size(30, 32);
-            menuCine.Items.AddRange(new ToolStripItem[] { imagen, actualizaciónToolStripMenuItem, novedadesToolStripMenuItem, cerrarSesiónToolStripMenuItem, salirToolStripMenuItem, salirToolStripMenuItem1 });
+            menuCine.Items.AddRange(new ToolStripItem[] { imagen, actualizaciónToolStripMenuItem, novedadesToolStripMenuItem, cerrarSesiónToolStripMenuItem, salirToolStripMenuItem });
             menuCine.Location = new Point(0, 56);
             menuCine.Name = "menuCine";
             menuCine.Padding = new Padding(6, 12, 0, 12);
-            menuCine.Size = new Size(821, 60);
+            menuCine.Size = new Size(840, 60);
             menuCine.TabIndex = 1;
             menuCine.Text = "menuStrip1";
             // 
@@ -188,31 +190,54 @@
             // 
             // novedadesToolStripMenuItem
             // 
+            novedadesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cancelarReservaciónToolStripMenuItem, cambiarDatosDeReservaciónToolStripMenuItem });
             novedadesToolStripMenuItem.ForeColor = Color.FromArgb(212, 175, 55);
             novedadesToolStripMenuItem.Name = "novedadesToolStripMenuItem";
             novedadesToolStripMenuItem.Size = new Size(133, 36);
             novedadesToolStripMenuItem.Text = "Actualización";
             // 
+            // cancelarReservaciónToolStripMenuItem
+            // 
+            cancelarReservaciónToolStripMenuItem.BackColor = Color.Black;
+            cancelarReservaciónToolStripMenuItem.ForeColor = Color.FromArgb(212, 175, 55);
+            cancelarReservaciónToolStripMenuItem.Name = "cancelarReservaciónToolStripMenuItem";
+            cancelarReservaciónToolStripMenuItem.Size = new Size(349, 28);
+            cancelarReservaciónToolStripMenuItem.Text = "Cancelar Reservación";
+            cancelarReservaciónToolStripMenuItem.Click += cancelarReservaciónToolStripMenuItem_Click;
+            // 
+            // cambiarDatosDeReservaciónToolStripMenuItem
+            // 
+            cambiarDatosDeReservaciónToolStripMenuItem.BackColor = Color.Black;
+            cambiarDatosDeReservaciónToolStripMenuItem.ForeColor = Color.FromArgb(212, 175, 55);
+            cambiarDatosDeReservaciónToolStripMenuItem.Name = "cambiarDatosDeReservaciónToolStripMenuItem";
+            cambiarDatosDeReservaciónToolStripMenuItem.Size = new Size(349, 28);
+            cambiarDatosDeReservaciónToolStripMenuItem.Text = "Cambiar Datos de Reservación";
+            cambiarDatosDeReservaciónToolStripMenuItem.Click += cambiarDatosDeReservaciónToolStripMenuItem_Click;
+            // 
             // cerrarSesiónToolStripMenuItem
             // 
+            cerrarSesiónToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { realizarReservaciónToolStripMenuItem });
             cerrarSesiónToolStripMenuItem.ForeColor = Color.FromArgb(212, 175, 55);
             cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
             cerrarSesiónToolStripMenuItem.Size = new Size(123, 36);
             cerrarSesiónToolStripMenuItem.Text = "Novedades ";
             // 
+            // realizarReservaciónToolStripMenuItem
+            // 
+            realizarReservaciónToolStripMenuItem.BackColor = Color.Black;
+            realizarReservaciónToolStripMenuItem.ForeColor = Color.FromArgb(212, 175, 55);
+            realizarReservaciónToolStripMenuItem.Name = "realizarReservaciónToolStripMenuItem";
+            realizarReservaciónToolStripMenuItem.Size = new Size(413, 28);
+            realizarReservaciónToolStripMenuItem.Text = "Realizar Reservación y Vender Tiquete";
+            realizarReservaciónToolStripMenuItem.Click += realizarReservaciónToolStripMenuItem_Click;
+            // 
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.ForeColor = Color.FromArgb(212, 175, 55);
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(132, 36);
-            salirToolStripMenuItem.Text = "Cerrar Sesión";
-            // 
-            // salirToolStripMenuItem1
-            // 
-            salirToolStripMenuItem1.ForeColor = Color.FromArgb(212, 175, 55);
-            salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
-            salirToolStripMenuItem1.Size = new Size(59, 36);
-            salirToolStripMenuItem1.Text = "Salir";
+            salirToolStripMenuItem.Size = new Size(59, 36);
+            salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
             // panelContenedor
             // 
@@ -220,7 +245,7 @@
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.Location = new Point(0, 116);
             panelContenedor.Name = "panelContenedor";
-            panelContenedor.Size = new Size(821, 523);
+            panelContenedor.Size = new Size(840, 591);
             panelContenedor.TabIndex = 2;
             // 
             // Menu
@@ -230,7 +255,7 @@
             BackColor = SystemColors.ActiveBorder;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(821, 639);
+            ClientSize = new Size(840, 707);
             Controls.Add(panelContenedor);
             Controls.Add(menuCine);
             Controls.Add(panel2);
@@ -260,9 +285,11 @@
         private ToolStripMenuItem novedadesToolStripMenuItem;
         private ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private ToolStripMenuItem salirToolStripMenuItem;
-        private ToolStripMenuItem salirToolStripMenuItem1;
         private ToolStripMenuItem porPuestoToolStripMenuItem;
         private ToolStripMenuItem porNombreToolStripMenuItem;
         private Panel panelContenedor;
+        private ToolStripMenuItem cancelarReservaciónToolStripMenuItem;
+        private ToolStripMenuItem cambiarDatosDeReservaciónToolStripMenuItem;
+        private ToolStripMenuItem realizarReservaciónToolStripMenuItem;
     }
 }
