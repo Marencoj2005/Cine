@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Login
+{
+    public partial class RealizarReserva : Form
+    {
+        public RealizarReserva()
+        {
+            InitializeComponent();
+            btnguardar.Enabled = false;
+            btnpago.Enabled = false;
+        }
+
+        private void btnsalir6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void groupBoxGestonReserva_Enter(object sender, EventArgs e)
+        {
+            btnRealizarReserva.Enabled = false;
+            btnpago.Enabled = false;
+        }
+
+        private void btnRealizarReserva_Click(object sender, EventArgs e)
+        {
+            btnguardar.Enabled = true;
+            btnpago.Enabled = false;
+
+
+        }
+
+        private void butnVenderTiquete_Click(object sender, EventArgs e)
+        {
+            btnguardar.Enabled = false;
+            btnpago.Enabled = true;
+        }
+    }
+}
