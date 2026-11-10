@@ -116,7 +116,6 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.None;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(5, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(30, 36);
@@ -127,7 +126,6 @@
             // pictureBox2
             // 
             pictureBox2.Anchor = AnchorStyles.None;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(6, 4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(31, 35);
