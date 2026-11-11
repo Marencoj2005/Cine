@@ -11,7 +11,9 @@ namespace Login
 {
     public partial class Puesto : Form
     {
-        string conexion = @"Server=.\DBD2025;Database=Cine;Trusted_Connection=True;TrustServerCertificate=True;";
+//string conexion = @"Server=DESKTOP-HKP8GGD\SQLEXPRESS;Database=Cine;Trusted_Connection=True;TrustServerCertificate=True;";
+        string conexion = "Server=172.29.68.36,1433;Database=Cine;User Id=sa;Password=TuPass123!;TrustServerCertificate=True;";
+
 
         public Puesto()
         {
