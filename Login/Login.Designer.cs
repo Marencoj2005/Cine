@@ -112,20 +112,22 @@
             TbxContraseña.PasswordChar = '*';
             TbxContraseña.Size = new Size(220, 28);
             TbxContraseña.TabIndex = 2;
-            // 
+            //
             // pictureBox1
-            // 
+            //
             pictureBox1.Anchor = AnchorStyles.None;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(5, 4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(30, 36);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
-            // 
+            //
             // pictureBox2
-            // 
+            //
             pictureBox2.Anchor = AnchorStyles.None;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(6, 4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(31, 35);
