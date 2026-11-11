@@ -6,13 +6,12 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
-using System.Data;
 
 namespace Login
 {
     public partial class Puesto : Form
     {
-        string conexion = @"Server=DESKTOP-HKP8GGD\SQLEXPRESS;Database=Cine;Trusted_Connection=True;TrustServerCertificate=True;";
+        string conexion = @"Server=.\DBD2025;Database=Cine;Trusted_Connection=True;TrustServerCertificate=True;";
 
         public Puesto()
         {
@@ -20,12 +19,13 @@ namespace Login
             CargarPuestos();
         }
 
+
         private void btnsalir3_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // Cargar los asientos en el ComboBox
+        // Cargar los asientos activos en el ComboBox
         private void CargarPuestos()
         {
             try
@@ -37,9 +37,7 @@ namespace Login
                     FROM Reservacion
                     ORDER BY Numero_silla";
 
-                    SqlDataAdapter adaptador =
-                        new SqlDataAdapter(consulta, con);
-
+                    SqlDataAdapter adaptador = new SqlDataAdapter(consulta, con);
                     DataTable tabla = new DataTable();
                     adaptador.Fill(tabla);
 
@@ -59,9 +57,9 @@ namespace Login
         // Buscar el asiento seleccionado
         private void btnbuscar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(CbxPuesto.Text))
+            if (string.IsNullOrWhiteSpace(CbxPuesto.Text) || CbxPuesto.SelectedIndex == -1)
             {
-                MessageBox.Show("Selecciona un asiento");
+                MessageBox.Show("Selecciona un asiento válido");
                 return;
             }
 
@@ -70,14 +68,12 @@ namespace Login
                 using (SqlConnection con = new SqlConnection(conexion))
                 {
                     string consulta = @"
-                    SELECT C.Nombre,C.Apellido,R.Numero_silla,R.Pelicula,R.Fecha_Reserva,R.Metodo_Pago
+                    SELECT C.Nombre, C.Apellido, R.Numero_silla, R.Pelicula, R.Fecha_Reserva, R.Metodo_Pago
                     FROM Reservacion R
                     INNER JOIN Cliente C ON R.Id_Cliente_FK = C.Id_Cliente
                     WHERE R.Numero_silla = @Puesto";
 
-                    SqlDataAdapter adaptador =
-                        new SqlDataAdapter(consulta, con);
-
+                    SqlDataAdapter adaptador = new SqlDataAdapter(consulta, con);
                     adaptador.SelectCommand.Parameters.AddWithValue(
                         "@Puesto", CbxPuesto.Text.Trim()
                     );
@@ -89,7 +85,7 @@ namespace Login
 
                     if (tabla.Rows.Count == 0)
                     {
-                        MessageBox.Show("No se encontró el asiento");
+                        MessageBox.Show("No se encontró el asiento en las reservas activas.");
                     }
                 }
             }
@@ -97,6 +93,12 @@ namespace Login
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void Puesto_Activated(object sender, EventArgs e)
+        {
+            CargarPuestos();
+            dataGridPuesto.DataSource = null;
         }
     }
 }
