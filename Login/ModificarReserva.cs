@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,11 @@ namespace Login
 {
     public partial class ModificarReserva : Form
     {
+        string conexion = @"Server=.\DBD2025;Database=Cine;Trusted_Connection=True;TrustServerCertificate=True;";
         public ModificarReserva()
         {
             InitializeComponent();
+            CargarCodigosReserva();
         }
 
         private void btnsalir4_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,7 @@ namespace Login
 {
     public partial class RealizarReserva : Form
     {
+        string conexion = "Server=172.29.68.36,1433;Database=Cine;User Id=sa;Password=Juan2005@;TrustServerCertificate=True";
         public RealizarReserva()
         {
             InitializeComponent();

@@ -33,7 +33,7 @@
             panel2 = new Panel();
             btnsalir6 = new Button();
             lbltitulo = new Label();
-            groupBoxIngresarCliente = new GroupBox();
+            groupBoxdatos = new GroupBox();
             btnpago = new Button();
             btnguardar = new Button();
             txcliente = new TextBox();
@@ -51,7 +51,7 @@
             groupBox1 = new GroupBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            groupBoxIngresarCliente.SuspendLayout();
+            groupBoxdatos.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -313,7 +313,7 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(700, 466);
             Controls.Add(groupBox1);
-            Controls.Add(groupBoxIngresarCliente);
+            Controls.Add(groupBoxdatos);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
@@ -322,8 +322,8 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            groupBoxIngresarCliente.ResumeLayout(false);
-            groupBoxIngresarCliente.PerformLayout();
+            groupBoxdatos.ResumeLayout(false);
+            groupBoxdatos.PerformLayout();
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -334,7 +334,7 @@
         private Panel panel2;
         private Label lbltitulo;
         private Button btnsalir6;
-        private GroupBox groupBoxIngresarCliente;
+        private GroupBox groupBoxdatos;
         private TextBox txcliente;
         private Label label6;
         private TextBox txmetodopago;

@@ -34,17 +34,17 @@
             btnsalir5 = new Button();
             lbltitulo = new Label();
             groupBoxCancelarReserva = new GroupBox();
+            comboBoxCancelarReserva = new ComboBox();
             btnbuscar = new Button();
-            txcodigo = new TextBox();
             lblBuscar = new Label();
             groupBoxDatosReservaParaCancelar = new GroupBox();
+            dataGridCancelar = new DataGridView();
             btncancelar = new Button();
-            dataGridDatosReservaCancelar = new DataGridView();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBoxCancelarReserva.SuspendLayout();
             groupBoxDatosReservaParaCancelar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridDatosReservaCancelar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridCancelar).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -100,8 +100,8 @@
             // groupBoxCancelarReserva
             // 
             groupBoxCancelarReserva.BackColor = Color.FromArgb(30, 41, 59);
+            groupBoxCancelarReserva.Controls.Add(comboBoxCancelarReserva);
             groupBoxCancelarReserva.Controls.Add(btnbuscar);
-            groupBoxCancelarReserva.Controls.Add(txcodigo);
             groupBoxCancelarReserva.Controls.Add(lblBuscar);
             groupBoxCancelarReserva.Font = new Font("Berlin Sans FB", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBoxCancelarReserva.ForeColor = Color.White;
@@ -112,6 +112,14 @@
             groupBoxCancelarReserva.TabStop = false;
             groupBoxCancelarReserva.Text = "Buscar Reservación";
             groupBoxCancelarReserva.Enter += groupBoxCancelarReserva_Enter;
+            // 
+            // comboBoxCancelarReserva
+            // 
+            comboBoxCancelarReserva.FormattingEnabled = true;
+            comboBoxCancelarReserva.Location = new Point(227, 31);
+            comboBoxCancelarReserva.Name = "comboBoxCancelarReserva";
+            comboBoxCancelarReserva.Size = new Size(251, 25);
+            comboBoxCancelarReserva.TabIndex = 3;
             // 
             // btnbuscar
             // 
@@ -126,13 +134,7 @@
             btnbuscar.TabIndex = 2;
             btnbuscar.Text = "Buscar";
             btnbuscar.UseVisualStyleBackColor = false;
-            // 
-            // txcodigo
-            // 
-            txcodigo.Location = new Point(234, 33);
-            txcodigo.Name = "txcodigo";
-            txcodigo.Size = new Size(244, 24);
-            txcodigo.TabIndex = 1;
+            btnbuscar.Click += btnbuscar_Click;
             // 
             // lblBuscar
             // 
@@ -149,8 +151,8 @@
             // groupBoxDatosReservaParaCancelar
             // 
             groupBoxDatosReservaParaCancelar.BackColor = Color.FromArgb(30, 41, 59);
+            groupBoxDatosReservaParaCancelar.Controls.Add(dataGridCancelar);
             groupBoxDatosReservaParaCancelar.Controls.Add(btncancelar);
-            groupBoxDatosReservaParaCancelar.Controls.Add(dataGridDatosReservaCancelar);
             groupBoxDatosReservaParaCancelar.Font = new Font("Berlin Sans FB", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBoxDatosReservaParaCancelar.ForeColor = Color.White;
             groupBoxDatosReservaParaCancelar.Location = new Point(84, 159);
@@ -159,6 +161,16 @@
             groupBoxDatosReservaParaCancelar.TabIndex = 14;
             groupBoxDatosReservaParaCancelar.TabStop = false;
             groupBoxDatosReservaParaCancelar.Text = "Datos de Reserva";
+            // 
+            // dataGridCancelar
+            // 
+            dataGridCancelar.BackgroundColor = Color.White;
+            dataGridCancelar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridCancelar.Location = new Point(18, 33);
+            dataGridCancelar.Name = "dataGridCancelar";
+            dataGridCancelar.RowHeadersWidth = 51;
+            dataGridCancelar.Size = new Size(621, 201);
+            dataGridCancelar.TabIndex = 12;
             // 
             // btncancelar
             // 
@@ -173,16 +185,7 @@
             btncancelar.TabIndex = 11;
             btncancelar.Text = "Cancelar Reserva";
             btncancelar.UseVisualStyleBackColor = false;
-            // 
-            // dataGridDatosReservaCancelar
-            // 
-            dataGridDatosReservaCancelar.BackgroundColor = Color.White;
-            dataGridDatosReservaCancelar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridDatosReservaCancelar.Location = new Point(10, 41);
-            dataGridDatosReservaCancelar.Name = "dataGridDatosReservaCancelar";
-            dataGridDatosReservaCancelar.RowHeadersWidth = 51;
-            dataGridDatosReservaCancelar.Size = new Size(634, 194);
-            dataGridDatosReservaCancelar.TabIndex = 10;
+            btncancelar.Click += btncancelar_Click;
             // 
             // CancelarReserva
             // 
@@ -204,7 +207,7 @@
             groupBoxCancelarReserva.ResumeLayout(false);
             groupBoxCancelarReserva.PerformLayout();
             groupBoxDatosReservaParaCancelar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridDatosReservaCancelar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridCancelar).EndInit();
             ResumeLayout(false);
         }
 
@@ -216,10 +219,10 @@
         private Button btnsalir5;
         private GroupBox groupBoxCancelarReserva;
         private Button btnbuscar;
-        private TextBox txcodigo;
         private Label lblBuscar;
         private GroupBox groupBoxDatosReservaParaCancelar;
         private Button btncancelar;
-        private DataGridView dataGridDatosReservaCancelar;
+        private ComboBox comboBoxCancelarReserva;
+        private DataGridView dataGridCancelar;
     }
 }
