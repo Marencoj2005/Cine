@@ -11,6 +11,16 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<CineContext>(x => x.UseSqlServer("name=LocalConnection")); //Dbcontext agregado para la comunicacion con la base de datos en la API
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowBlazor", policy =>
+    {
+        policy.WithOrigins("https://localhost:7138") // El puerto de Blazor
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+    /*IMPORTANTISIMO Para evitar el error de tipo CORS Cross-Origin Resource Sharing*/
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,6 +32,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowBlazor");
 
 app.UseAuthorization();
 
