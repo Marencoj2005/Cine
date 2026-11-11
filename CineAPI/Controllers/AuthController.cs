@@ -95,11 +95,14 @@ namespace CineAPI.Controllers
                     mensaje = "Usuario o contraseña incorrectos"
                 });
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
                 return StatusCode(500, new
                 {
-                    mensaje = "Error al consultar la base de datos"
+                    mensaje = $"Error al consultar la base de datos. Motivo {ex.Message}"
+                    /*Lo que hice fue hacer un breakpoint y activar el debug y luego abrir ctrl + alt + i y escribir
+                     respuesta.Content.ReadAsStringAsync().Result para ver el comportamiento de la ejecucion
+                    ATTE: Juan Marenco*/
                 });
             }
         }
