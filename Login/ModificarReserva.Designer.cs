@@ -53,8 +53,9 @@
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 53);
+            panel1.Size = new Size(700, 40);
             panel1.TabIndex = 3;
             // 
             // panel2
@@ -64,8 +65,9 @@
             panel2.Controls.Add(lbltitulo);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(800, 44);
+            panel2.Size = new Size(700, 33);
             panel2.TabIndex = 1;
             // 
             // btnsalir4
@@ -77,9 +79,10 @@
             btnsalir4.FlatStyle = FlatStyle.Flat;
             btnsalir4.Font = new Font("Berlin Sans FB", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnsalir4.ForeColor = Color.White;
-            btnsalir4.Location = new Point(751, 12);
+            btnsalir4.Location = new Point(657, 9);
+            btnsalir4.Margin = new Padding(3, 2, 3, 2);
             btnsalir4.Name = "btnsalir4";
-            btnsalir4.Size = new Size(37, 24);
+            btnsalir4.Size = new Size(32, 18);
             btnsalir4.TabIndex = 10;
             btnsalir4.Text = "X";
             btnsalir4.UseVisualStyleBackColor = false;
@@ -93,7 +96,7 @@
             lbltitulo.ForeColor = Color.FromArgb(212, 175, 55);
             lbltitulo.Location = new Point(0, 0);
             lbltitulo.Name = "lbltitulo";
-            lbltitulo.Size = new Size(223, 31);
+            lbltitulo.Size = new Size(174, 24);
             lbltitulo.TabIndex = 4;
             lbltitulo.Text = "Modificar Reserva";
             // 
@@ -104,9 +107,11 @@
             groupBoxDatosReserva.Controls.Add(dataGridDatosReservaModificar);
             groupBoxDatosReserva.Font = new Font("Berlin Sans FB", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBoxDatosReserva.ForeColor = Color.White;
-            groupBoxDatosReserva.Location = new Point(65, 154);
+            groupBoxDatosReserva.Location = new Point(57, 116);
+            groupBoxDatosReserva.Margin = new Padding(3, 2, 3, 2);
             groupBoxDatosReserva.Name = "groupBoxDatosReserva";
-            groupBoxDatosReserva.Size = new Size(659, 310);
+            groupBoxDatosReserva.Padding = new Padding(3, 2, 3, 2);
+            groupBoxDatosReserva.Size = new Size(577, 232);
             groupBoxDatosReserva.TabIndex = 13;
             groupBoxDatosReserva.TabStop = false;
             groupBoxDatosReserva.Text = "Datos de Reserva";
@@ -118,9 +123,10 @@
             btnmodificar.FlatAppearance.BorderSize = 2;
             btnmodificar.FlatStyle = FlatStyle.Flat;
             btnmodificar.ForeColor = Color.FromArgb(212, 175, 55);
-            btnmodificar.Location = new Point(483, 254);
+            btnmodificar.Location = new Point(423, 190);
+            btnmodificar.Margin = new Padding(3, 2, 3, 2);
             btnmodificar.Name = "btnmodificar";
-            btnmodificar.Size = new Size(144, 29);
+            btnmodificar.Size = new Size(126, 22);
             btnmodificar.TabIndex = 11;
             btnmodificar.Text = "Modificar Reserva";
             btnmodificar.UseVisualStyleBackColor = false;
@@ -129,10 +135,11 @@
             // 
             dataGridDatosReservaModificar.BackgroundColor = Color.White;
             dataGridDatosReservaModificar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridDatosReservaModificar.Location = new Point(10, 41);
+            dataGridDatosReservaModificar.Location = new Point(9, 31);
+            dataGridDatosReservaModificar.Margin = new Padding(3, 2, 3, 2);
             dataGridDatosReservaModificar.Name = "dataGridDatosReservaModificar";
             dataGridDatosReservaModificar.RowHeadersWidth = 51;
-            dataGridDatosReservaModificar.Size = new Size(634, 194);
+            dataGridDatosReservaModificar.Size = new Size(555, 146);
             dataGridDatosReservaModificar.TabIndex = 10;
             // 
             // groupBoxModificarReserva
@@ -143,9 +150,11 @@
             groupBoxModificarReserva.Controls.Add(lblBuscar);
             groupBoxModificarReserva.Font = new Font("Berlin Sans FB", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBoxModificarReserva.ForeColor = Color.White;
-            groupBoxModificarReserva.Location = new Point(65, 77);
+            groupBoxModificarReserva.Location = new Point(57, 58);
+            groupBoxModificarReserva.Margin = new Padding(3, 2, 3, 2);
             groupBoxModificarReserva.Name = "groupBoxModificarReserva";
-            groupBoxModificarReserva.Size = new Size(659, 71);
+            groupBoxModificarReserva.Padding = new Padding(3, 2, 3, 2);
+            groupBoxModificarReserva.Size = new Size(577, 53);
             groupBoxModificarReserva.TabIndex = 12;
             groupBoxModificarReserva.TabStop = false;
             groupBoxModificarReserva.Text = "Buscar Reservación";
@@ -157,19 +166,23 @@
             btnbuscar.FlatAppearance.BorderSize = 2;
             btnbuscar.FlatStyle = FlatStyle.Flat;
             btnbuscar.ForeColor = Color.FromArgb(212, 175, 55);
-            btnbuscar.Location = new Point(533, 28);
+            btnbuscar.Location = new Point(466, 21);
+            btnbuscar.Margin = new Padding(3, 2, 3, 2);
             btnbuscar.Name = "btnbuscar";
-            btnbuscar.Size = new Size(94, 29);
+            btnbuscar.Size = new Size(82, 22);
             btnbuscar.TabIndex = 2;
             btnbuscar.Text = "Buscar";
             btnbuscar.UseVisualStyleBackColor = false;
+            btnbuscar.Click += btnbuscar_Click;
             // 
             // txcodigo
             // 
-            txcodigo.Location = new Point(234, 33);
+            txcodigo.Location = new Point(205, 25);
+            txcodigo.Margin = new Padding(3, 2, 3, 2);
             txcodigo.Name = "txcodigo";
-            txcodigo.Size = new Size(244, 24);
+            txcodigo.Size = new Size(214, 21);
             txcodigo.TabIndex = 1;
+            txcodigo.TextChanged += txcodigo_TextChanged;
             // 
             // lblBuscar
             // 
@@ -177,23 +190,24 @@
             lblBuscar.BackColor = Color.Transparent;
             lblBuscar.Font = new Font("Berlin Sans FB", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblBuscar.ForeColor = Color.White;
-            lblBuscar.Location = new Point(54, 34);
+            lblBuscar.Location = new Point(47, 26);
             lblBuscar.Name = "lblBuscar";
-            lblBuscar.Size = new Size(142, 19);
+            lblBuscar.Size = new Size(117, 16);
             lblBuscar.TabIndex = 0;
             lblBuscar.Text = "Buscar por Código:";
             // 
             // ModificarReserva
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 503);
+            ClientSize = new Size(700, 377);
             Controls.Add(groupBoxDatosReserva);
             Controls.Add(groupBoxModificarReserva);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ModificarReserva";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ModificarReserva";

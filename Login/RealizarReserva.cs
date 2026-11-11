@@ -41,5 +41,20 @@ namespace Login
             btnguardar.Enabled = false;
             btnpago.Enabled = true;
         }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnpago_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txsilla_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -19,5 +19,15 @@ namespace Login
         {
             this.Close();
         }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txcodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
