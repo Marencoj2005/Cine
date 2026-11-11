@@ -33,7 +33,7 @@
             panel2 = new Panel();
             btnsalir6 = new Button();
             lbltitulo = new Label();
-            groupBoxIngresarCliente = new GroupBox();
+            groupBoxdatos = new GroupBox();
             btnpago = new Button();
             btnguardar = new Button();
             txcliente = new TextBox();
@@ -51,7 +51,7 @@
             groupBox1 = new GroupBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            groupBoxIngresarCliente.SuspendLayout();
+            groupBoxdatos.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -105,29 +105,29 @@
             lbltitulo.TabIndex = 4;
             lbltitulo.Text = "Realizar Reserva y Venta de Tiquete";
             // 
-            // groupBoxIngresarCliente
+            // groupBoxdatos
             // 
-            groupBoxIngresarCliente.BackColor = Color.FromArgb(30, 41, 59);
-            groupBoxIngresarCliente.Controls.Add(btnpago);
-            groupBoxIngresarCliente.Controls.Add(btnguardar);
-            groupBoxIngresarCliente.Controls.Add(txcliente);
-            groupBoxIngresarCliente.Controls.Add(label6);
-            groupBoxIngresarCliente.Controls.Add(txmetodopago);
-            groupBoxIngresarCliente.Controls.Add(label4);
-            groupBoxIngresarCliente.Controls.Add(txpelicula);
-            groupBoxIngresarCliente.Controls.Add(txfechareserva);
-            groupBoxIngresarCliente.Controls.Add(txsilla);
-            groupBoxIngresarCliente.Controls.Add(label3);
-            groupBoxIngresarCliente.Controls.Add(label2);
-            groupBoxIngresarCliente.Controls.Add(label1);
-            groupBoxIngresarCliente.Font = new Font("Berlin Sans FB", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBoxIngresarCliente.ForeColor = Color.White;
-            groupBoxIngresarCliente.Location = new Point(40, 179);
-            groupBoxIngresarCliente.Name = "groupBoxIngresarCliente";
-            groupBoxIngresarCliente.Size = new Size(716, 391);
-            groupBoxIngresarCliente.TabIndex = 7;
-            groupBoxIngresarCliente.TabStop = false;
-            groupBoxIngresarCliente.Text = "Ingresar Datos de la Reserva";
+            groupBoxdatos.BackColor = Color.FromArgb(30, 41, 59);
+            groupBoxdatos.Controls.Add(btnpago);
+            groupBoxdatos.Controls.Add(btnguardar);
+            groupBoxdatos.Controls.Add(txcliente);
+            groupBoxdatos.Controls.Add(label6);
+            groupBoxdatos.Controls.Add(txmetodopago);
+            groupBoxdatos.Controls.Add(label4);
+            groupBoxdatos.Controls.Add(txpelicula);
+            groupBoxdatos.Controls.Add(txfechareserva);
+            groupBoxdatos.Controls.Add(txsilla);
+            groupBoxdatos.Controls.Add(label3);
+            groupBoxdatos.Controls.Add(label2);
+            groupBoxdatos.Controls.Add(label1);
+            groupBoxdatos.Font = new Font("Berlin Sans FB", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBoxdatos.ForeColor = Color.White;
+            groupBoxdatos.Location = new Point(40, 179);
+            groupBoxdatos.Name = "groupBoxdatos";
+            groupBoxdatos.Size = new Size(716, 391);
+            groupBoxdatos.TabIndex = 7;
+            groupBoxdatos.TabStop = false;
+            groupBoxdatos.Text = "Ingresar Datos de la Reserva";
             // 
             // btnpago
             // 
@@ -142,6 +142,7 @@
             btnpago.TabIndex = 13;
             btnpago.Text = "Procesar Pago";
             btnpago.UseVisualStyleBackColor = false;
+            btnpago.Click += btnpago_Click;
             // 
             // btnguardar
             // 
@@ -156,6 +157,7 @@
             btnguardar.TabIndex = 12;
             btnguardar.Text = "Guardar";
             btnguardar.UseVisualStyleBackColor = false;
+            btnguardar.Click += btnguardar_Click;
             // 
             // txcliente
             // 
@@ -294,7 +296,7 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 621);
             Controls.Add(groupBox1);
-            Controls.Add(groupBoxIngresarCliente);
+            Controls.Add(groupBoxdatos);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "RealizarReserva";
@@ -302,8 +304,8 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            groupBoxIngresarCliente.ResumeLayout(false);
-            groupBoxIngresarCliente.PerformLayout();
+            groupBoxdatos.ResumeLayout(false);
+            groupBoxdatos.PerformLayout();
             groupBox1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -314,7 +316,7 @@
         private Panel panel2;
         private Label lbltitulo;
         private Button btnsalir6;
-        private GroupBox groupBoxIngresarCliente;
+        private GroupBox groupBoxdatos;
         private TextBox txcliente;
         private Label label6;
         private TextBox txmetodopago;
