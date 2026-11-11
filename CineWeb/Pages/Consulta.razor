@@ -1,0 +1,108 @@
+﻿<!-- En Pages/Consultar.razor -->
+@page "/consultar"
+@* @inject HttpClient Http (Lo usaremos mañana) *@
+
+<h3>Consultar Reservaciones</h3>
+
+<!-- Panel de Búsqueda (Caja de Herramientas) -->
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-4">
+                <label for="txtCliente" class="form-label">Nombre del Cliente:</label>
+                <input type="text" class="form-control" id="txtCliente" @bind="clienteBusqueda" placeholder="Ej: Juan Perez">
+            </div>
+            <div class="col-md-3">
+                <label for="txtPuesto" class="form-label">Número de Puesto:</label>
+                <input type="text" class="form-control" id="txtPuesto" @bind="puestoBusqueda" placeholder="Ej: A1">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary w-100" @onclick="EjecutarConsulta">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tabla de Resultados (Exfiltración de Datos) -->
+<div class="table-responsive">
+    <table class="table table-striped table-hover border">
+        <thead class="table-dark">
+            <tr>
+                <th>Puesto</th>
+                <th>Cliente</th>
+                <th>Película</th>
+                <th>Formato</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (reservasEncontradas == null)
+            {
+                <tr>
+                    <td colspan="5" class="text-center text-muted">Ingrese parámetros para iniciar la búsqueda.</td>
+                </tr>
+            }
+            else if (!reservasEncontradas.Any())
+            {
+                <tr>
+                    <td colspan="5" class="text-center text-danger">No se encontraron reservas con esos criterios.</td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var reserva in reservasEncontradas)
+                {
+                    <tr>
+                        <td>@reserva.Puesto</td>
+                        <td>@reserva.ClienteNombre</td>
+                        <td>@reserva.TituloPelicula</td>
+                        <td>@reserva.Formato</td>
+                        <td>
+                            <span class="badge @(reserva.Estado == "Activa" ? "bg-success" : "bg-danger")">
+                                @reserva.Estado
+                            </span>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    // Variables para capturar los datos del formulario (Fuzzing)
+    private string clienteBusqueda = "";
+    private string puestoBusqueda = "";
+
+    // Lista temporal para almacenar los resultados simulados
+    private List<ReservaSimulada> reservasEncontradas;
+
+    private void EjecutarConsulta()
+    {
+        // TODO: Mañana conectaremos esto con tu HttpClient y la API
+
+        // Simulación de respuesta para ver cómo funciona el diseño:
+        //esto es una semilla, luego programo el boton para mejorear esto
+        reservasEncontradas = new List<ReservaSimulada>
+        {
+            new ReservaSimulada { Puesto = "A1", ClienteNombre = "Juan Pablo Marenco", TituloPelicula = "Matrix", Formato = "3D", Estado = "Activa" },
+            new ReservaSimulada { Puesto = "B4", ClienteNombre = "Lorena", TituloPelicula = "Inception", Formato = "HD", Estado = "Cancelada" }
+        };
+
+        // Filtro básico en memoria (simulando lo que hará SQL)
+        if (!string.IsNullOrEmpty(clienteBusqueda))
+        {
+            reservasEncontradas = reservasEncontradas.Where(r => r.ClienteNombre.Contains(clienteBusqueda, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+    }
+
+    // Clase interna temporal para simular el DTO que vendrá de la API
+    public class ReservaSimulada
+    {
+        public string Puesto { get; set; }
+        public string ClienteNombre { get; set; }
+        public string TituloPelicula { get; set; }
+        public string Formato { get; set; }
+        public string Estado { get; set; }
+    }
+}

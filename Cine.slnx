@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="CineAPI/CineAPI.csproj" Id="46acb99e-cdb6-4eeb-9327-5e92727056dc" />
+  <Project Path="CineWeb/CineWeb.csproj" />
   <Project Path="Conexion/Conexion.csproj" Id="2d05ad2e-eefe-4a83-b637-30118777234a" />
   <Project Path="Login/Login.csproj" />
 </Solution>
