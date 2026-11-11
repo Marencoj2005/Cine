@@ -127,6 +127,7 @@
             CbxPuesto.Name = "CbxPuesto";
             CbxPuesto.Size = new Size(220, 26);
             CbxPuesto.TabIndex = 9;
+            CbxPuesto.SelectedIndexChanged += CbxPuesto_SelectedIndexChanged;
             // 
             // btnbuscar
             // 

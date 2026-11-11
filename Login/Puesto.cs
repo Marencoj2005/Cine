@@ -11,8 +11,8 @@ namespace Login
 {
     public partial class Puesto : Form
     {
-//string conexion = @"Server=DESKTOP-HKP8GGD\SQLEXPRESS;Database=Cine;Trusted_Connection=True;TrustServerCertificate=True;";
-        string conexion = "Server=172.29.68.36,1433;Database=Cine;User Id=sa;Password=TuPass123!;TrustServerCertificate=True;";
+        //string conexion = @"Server=DESKTOP-HKP8GGD\SQLEXPRESS;Database=Cine;Trusted_Connection=True;TrustServerCertificate=True;";
+        string conexion = "Server=172.29.68.36,1433;Database=Cine;User Id=sa;Password=Juan2005@;TrustServerCertificate=True;";
 
 
         public Puesto()
@@ -97,10 +97,9 @@ namespace Login
             }
         }
 
-        private void Puesto_Activated(object sender, EventArgs e)
+        private void CbxPuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarPuestos();
-            dataGridPuesto.DataSource = null;
+
         }
     }
 }
