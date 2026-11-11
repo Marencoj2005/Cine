@@ -12,17 +12,12 @@ namespace Login
 {
     public partial class Puesto : Form
     {
-        //Depende del computador tienes que cambiar el Server = ....
-        //att Samuel
-        string conexion = @"Server=DESKTOP-HKP8GGD\\SQLEXPRESS;
-                    Database=Cine;
-                    Trusted_Connection=True;
-                    TrustServerCertificate=True;";
+        string conexion = @"Server=DESKTOP-HKP8GGD\SQLEXPRESS;Database=Cine;Trusted_Connection=True;TrustServerCertificate=True;";
 
         public Puesto()
         {
             InitializeComponent();
-            CargarClientes();
+            CargarPuestos();
         }
 
         private void btnsalir3_Click(object sender, EventArgs e)
@@ -30,25 +25,26 @@ namespace Login
             this.Close();
         }
 
-        private void CargarClientes()
+        // Cargar los asientos en el ComboBox
+        private void CargarPuestos()
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(conexion))
                 {
                     string consulta = @"
-                    SELECT Id_Cliente, Nombre + ' ' + Apellido AS NombreCompleto
-                    FROM Cliente";
+                    SELECT DISTINCT Numero_silla
+                    FROM Reservacion
+                    ORDER BY Numero_silla";
 
                     SqlDataAdapter adaptador =
                         new SqlDataAdapter(consulta, con);
 
                     DataTable tabla = new DataTable();
-
                     adaptador.Fill(tabla);
 
-                    CbxPuesto.DisplayMember = "NombreCompleto";
-                    CbxPuesto.ValueMember = "Id_Cliente";
+                    CbxPuesto.DisplayMember = "Numero_silla";
+                    CbxPuesto.ValueMember = "Numero_silla";
                     CbxPuesto.DataSource = tabla;
 
                     CbxPuesto.SelectedIndex = -1;
@@ -56,20 +52,28 @@ namespace Login
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar clientes: " + ex.Message);
+                MessageBox.Show("Error al cargar puestos: " + ex.Message);
             }
         }
+
+        // Buscar el asiento seleccionado
         private void btnbuscar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(CbxPuesto.Text))
+            {
+                MessageBox.Show("Selecciona un asiento");
+                return;
+            }
+
             try
             {
                 using (SqlConnection con = new SqlConnection(conexion))
                 {
                     string consulta = @"
-                SELECT C.Nombre,C.Apellido,R.Numero_silla,R.Pelicula, R.Fecha_Reserva,R.Metodo_Pago
-                FROM Reservacion R
-                INNER JOIN Cliente C ON R.Id_Cliente_FK = C.Id_Cliente
-                WHERE R.Numero_silla = @Puesto";
+                    SELECT C.Nombre,C.Apellido,R.Numero_silla,R.Pelicula,R.Fecha_Reserva,R.Metodo_Pago
+                    FROM Reservacion R
+                    INNER JOIN Cliente C ON R.Id_Cliente_FK = C.Id_Cliente
+                    WHERE R.Numero_silla = @Puesto";
 
                     SqlDataAdapter adaptador =
                         new SqlDataAdapter(consulta, con);
